@@ -9,7 +9,7 @@ module.exports = {
   devServer: {
     hot: true,
     static: {
-      directory: "./dist",
+      directory: path.resolve(__dirname, ""),
       watch: true,
     },
   },
