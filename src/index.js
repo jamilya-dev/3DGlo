@@ -1,4 +1,6 @@
 import timer from "./modules/timer";
-// import two from "./modules/two";
+import menu from "./modules/menu";
+import modal from "./modules/modal";
 timer("22 august 2024");
-// two();
+menu();
+modal();
