@@ -4,19 +4,17 @@ const modal = () => {
   const popupClose = modal.querySelector(".popup-close");
   const windiwWidth = document.documentElement.clientWidth;
 
-  let count = 0;
+  let opacity = 0;
   let intervalId;
 
   const animation = () => {
-    count++;
+    opacity += 0.04;
     intervalId = requestAnimationFrame(animation);
-    if (count <= 50) {
-      let opacity = Number(modal.style.opacity);
-      opacity += 0.02;
+    if (opacity < 1) {
       modal.style.opacity = opacity;
     } else {
       cancelAnimationFrame(intervalId);
-      count = 0;
+      opacity = 0;
     }
   };
 
@@ -26,13 +24,19 @@ const modal = () => {
         modal.style.display = "block";
         modal.style.opacity = "0";
         animation();
+      } else {
+        modal.style.display = "block";
       }
     });
   });
 
   popupClose.addEventListener("click", () => {
-    modal.style.display = "none";
-    modal.style.opacity = "0";
+    if (windiwWidth > 768) {
+      modal.style.display = "none";
+      modal.style.opacity = "";
+    } else {
+      modal.style.display = "none";
+    }
   });
 };
 
