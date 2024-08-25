@@ -1,20 +1,38 @@
 const menu = () => {
-  const menuBtn = document.querySelector(".menu");
-  const menu = document.querySelector("menu");
-  const closeBtn = menu.querySelector(".close-btn");
-  const menuItems = menu.querySelectorAll("ul>li>a");
+  const menu = document.querySelector('menu');
+  const mainHeader = document.querySelector('.main-header');
 
   const handleMenu = () => {
-    menu.classList.toggle("active-menu");
+    menu.classList.toggle('active-menu');
   };
 
-  menuBtn.addEventListener("click", handleMenu);
+  mainHeader.addEventListener('click', (e) => {
+    if (e.target.closest('.menu')) {
+      handleMenu();
+    }
+  });
 
-  closeBtn.addEventListener("click", handleMenu);
+  menu.addEventListener('click', (e) => {
+    if (e.target.closest('.menu') || e.target.matches('ul>li>a') || e.target.classList.contains('close-btn')) {
+      handleMenu();
+    }
+  });
 
-  menuItems.forEach((menuItem) =>
-    menuItem.addEventListener("click", handleMenu)
-  );
+  // дополнительное работает все на одном прослушивателе
+
+  // const toggleMenu = () => {
+  //   window.addEventListener('click', (e) => {
+  //     if (
+  //       e.target.closest('.menu') ||
+  //       e.target.matches('.active-menu>ul>li>a') ||
+  //       e.target.classList.contains('close-btn') ||
+  //       (!menu.contains(e.target) && menu.classList.contains('active-menu'))
+  //     ) {
+  //       handleMenu();
+  //     }
+  //   });
+  // };
+  // toggleMenu();
 };
 
 export default menu;
