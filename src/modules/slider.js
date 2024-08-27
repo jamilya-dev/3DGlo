@@ -10,11 +10,11 @@ const slider = () => {
 
   const createDots = () => {
     dotContainer.innerHTML = '';
-    slides.forEach((index) => {
+    slides.forEach((item, index) => {
       const dot = document.createElement('li');
       dot.classList.add('dot');
       dotContainer.append(dot);
-      if (index === 0) {
+      if (index == 0) {
         dot.classList.add('dot-active');
       }
     });
