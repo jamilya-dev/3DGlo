@@ -1,20 +1,20 @@
+import { animate } from './helpers';
+
 const modal = () => {
   const modal = document.querySelector('.popup');
   const buttons = document.querySelectorAll('.popup-btn');
   const windiwWidth = document.documentElement.clientWidth;
 
-  let opacity = 0;
-  let intervalId;
-
   const animation = () => {
-    opacity += 0.04;
-    intervalId = requestAnimationFrame(animation);
-    if (opacity <= 1) {
-      modal.style.opacity = opacity;
-    } else {
-      cancelAnimationFrame(intervalId);
-      opacity = 0;
-    }
+    animate({
+      duration: 1000,
+      timing(timeFraction) {
+        return timeFraction;
+      },
+      draw(progress) {
+        modal.style.opacity = progress;
+      },
+    });
   };
 
   buttons.forEach((btn) => {
