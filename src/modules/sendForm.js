@@ -71,6 +71,7 @@ const sendForm = ({ formId, someElem = [] }) => {
     }
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+
       submitForm();
     });
   } catch (error) {
