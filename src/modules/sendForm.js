@@ -5,16 +5,14 @@ const sendForm = ({ formId, someElem = [] }) => {
   const errorText = 'Ошибка...';
   const successText = 'Спасибо! Наш менеджер с вами свяжется';
 
-  // валидация заполнения полей формы
   const validate = (list) => {
-    let success = true; // изначально присваиваем true
+    let success = true;
     list.forEach((input) => {
-      if (input.classList.contains('success')) {
-        // если нет у хотябы одного инпута класса success
-        success = false; // присваиваем false
+      if (!input.classList.contains('success')) {
+        success = false;
       }
     });
-    return success; // возвращаем success
+    return success;
   };
 
   const sendData = (data) => {
@@ -31,7 +29,6 @@ const sendForm = ({ formId, someElem = [] }) => {
     const formData = new FormData(form);
     const formBody = {};
 
-    // устанавливаем слово загрузка при клике
     statusBlock.textContent = loadText;
     form.append(statusBlock);
 
@@ -47,13 +44,11 @@ const sendForm = ({ formId, someElem = [] }) => {
         formBody[elem.id] = element.value;
       }
     });
-    console.log();
+
     if (validate(formElements)) {
       sendData(formBody)
         .then((data) => {
-          // меняем загрузка на успех
           statusBlock.textContent = successText;
-          // очищаем инруты после отправки
           formElements.forEach((input) => {
             input.value = '';
           });

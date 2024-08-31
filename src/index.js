@@ -10,7 +10,7 @@ import sendForm from './modules/sendForm';
 timer('25 august 2024');
 menu();
 modal();
-// forms();
+forms();
 tabs();
 slider();
 sliderCarousel();
