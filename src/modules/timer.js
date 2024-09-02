@@ -1,7 +1,7 @@
 const timer = (dedline) => {
-  let timerHours = document.getElementById("timer-hours");
-  let timerMinutes = document.getElementById("timer-minutes");
-  let timerSeconds = document.getElementById("timer-seconds");
+  const timerHours = document.getElementById("timer-hours");
+  const timerMinutes = document.getElementById("timer-minutes");
+  const timerSeconds = document.getElementById("timer-seconds");
   let intervalId;
 
   const getTimeRemaining = () => {
@@ -39,6 +39,7 @@ const timer = (dedline) => {
     }
   };
   intervalId = setInterval(updateClock, 1000);
+  updateClock();
 };
 
 export default timer;
