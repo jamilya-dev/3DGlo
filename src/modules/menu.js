@@ -17,22 +17,6 @@ const menu = () => {
       handleMenu();
     }
   });
-
-  // дополнительное работает все на одном прослушивателе
-
-  // const toggleMenu = () => {
-  //   window.addEventListener('click', (e) => {
-  //     if (
-  //       e.target.closest('.menu') ||
-  //       e.target.matches('.active-menu>ul>li>a') ||
-  //       e.target.classList.contains('close-btn') ||
-  //       (!menu.contains(e.target) && menu.classList.contains('active-menu'))
-  //     ) {
-  //       handleMenu();
-  //     }
-  //   });
-  // };
-  // toggleMenu();
 };
 
 export default menu;

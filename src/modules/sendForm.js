@@ -30,6 +30,7 @@ const sendForm = ({ formId, someElem = [] }) => {
     const formBody = {};
 
     statusBlock.textContent = loadText;
+    statusBlock.style.color = 'white';
     form.append(statusBlock);
 
     formData.forEach((val, key) => {
@@ -50,7 +51,11 @@ const sendForm = ({ formId, someElem = [] }) => {
           statusBlock.textContent = successText;
           formElements.forEach((input) => {
             input.value = '';
+            input.classList.remove('success');
           });
+          setTimeout(() => {
+            statusBlock.textContent = '';
+          }, 2000);
         })
         .catch((error) => {
           statusBlock.textContent = errorText;

@@ -1,7 +1,7 @@
 const forms = () => {
   const nameInputs = document.querySelectorAll('input[name=user_name]');
-  const phoneInputs = document.querySelectorAll('input[name=user_email]');
-  const emailInputs = document.querySelectorAll('input[name=user_phone]');
+  const emailInputs = document.querySelectorAll('input[name=user_email]');
+  const phoneInputs = document.querySelectorAll('input[name=user_phone]');
   const messageInputs = document.querySelector('input[name=user_message]');
   const calcInputs = document.querySelectorAll('.calc-block > input[type=text]');
 
@@ -14,12 +14,12 @@ const forms = () => {
 
   messageInputs.addEventListener('input', () => {
     messageInputs.value = messageInputs.value.replace(/[^а-я\s-]/gi, '');
-    input.classList.add('success');
+    messageInputs.classList.add('success');
   });
 
   phoneInputs.forEach((input) => {
     input.addEventListener('input', () => {
-      input.value = input.value.replace(/[^\d\(\)\-]/, '');
+      input.value = input.value.replace(/[^\d\(\)\+\-]/, '');
       input.classList.add('success');
     });
   });

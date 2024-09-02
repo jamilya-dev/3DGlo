@@ -7,7 +7,7 @@ import slider from './modules/slider';
 import sliderCarousel from './modules/sliderCarousel';
 import calc from './modules/calc';
 import sendForm from './modules/sendForm';
-timer('25 august 2024');
+timer('25 september 2024');
 menu();
 modal();
 forms();

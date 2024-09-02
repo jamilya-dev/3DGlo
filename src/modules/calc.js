@@ -28,7 +28,7 @@ const calc = (price = 100) => {
     } else {
       toralValue = 0;
     }
-    total.textContent = toralValue;
+    total.textContent = Math.floor(toralValue);
   };
 
   calcBlock.addEventListener('input', (e) => {
