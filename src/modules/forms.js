@@ -1,34 +1,52 @@
 const forms = () => {
-  const nameInputs = document.querySelectorAll('input[name=user_name]');
-  const phoneInputs = document.querySelectorAll('input[name=user_email]');
-  const emailInputs = document.querySelectorAll('input[name=user_phone]');
-  const messageInputs = document.querySelector('input[name=user_message]');
+  const form1Name = document.getElementById('form1-name');
+  const form1Email = document.getElementById('form1-email');
+  const form1Phone = document.getElementById('form1-phone');
+  const form1 = document.getElementById('form1');
+  const form2Name = document.getElementById('form2-name');
+  const form2Email = document.getElementById('form2-email');
+  const form2Message = document.getElementById('form2-message');
+  const form2Phone = document.getElementById('form2-phone');
+  const form2 = document.getElementById('form2');
+  const form3Name = document.getElementById('form3-name');
+  const form3Email = document.getElementById('form3-email');
+  const form3Phone = document.getElementById('form3-phone');
+  const form3 = document.getElementById('form3');
+
   const calcInputs = document.querySelectorAll('.calc-block > input[type=text]');
 
-  nameInputs.forEach((input) => {
-    input.addEventListener('input', () => {
-      input.value = input.value.replace(/[^а-я\s-]/gi, '');
-      input.classList.add('success');
+  const checkInputsText = (input, form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!/[а-я]+\s+-+/gi.test(input.value) && input.value !== '') {
+        console.log('Заполните корректно поле');
+      } else {
+        console.log('Данные отправлены');
+      }
     });
-  });
+  };
 
-  messageInputs.addEventListener('input', () => {
-    messageInputs.value = messageInputs.value.replace(/[^а-я\s-]/gi, '');
-    input.classList.add('success');
-  });
+  const checkInputsPhone = (input, form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (/^[\d\(\)\-]+$/.test(input.value) && input.value !== '') {
+        console.log('Заполните корректно поле');
+      } else {
+        console.log('Данные отправлены');
+      }
+    });
+  };
 
-  phoneInputs.forEach((input) => {
-    input.addEventListener('input', () => {
-      input.value = input.value.replace(/[^\d\(\)\-]/, '');
-      input.classList.add('success');
+  const checkInputsEmail = (input, form) => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!/[\w\@\-\_\.\!\~\*\']+/g.test(input.value) && input.value !== '') {
+        console.log('Заполните корректно поле');
+      } else {
+        console.log('Данные отправлены');
+      }
     });
-  });
-  emailInputs.forEach((input) => {
-    input.addEventListener('input', () => {
-      input.value = input.value.replace(/[^\w\@\-\_\.\!\~\*\']+/g, '');
-      input.classList.add('success');
-    });
-  });
+  };
 
   calcInputs.forEach((input) => {
     input.addEventListener('input', (e) => {
